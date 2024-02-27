@@ -274,3 +274,24 @@ def transpose(lst):
         transposed.append(transposed_row)
     
     return transposed
+
+# challenge 31
+def whatToBuy(prices, quantities, total_price_allowed, construction_names):
+    if len(prices) != len(quantities) or len(prices) != len(construction_names):
+        return "Error: Input lists must have the same length."
+
+    # Calculate the average prices and quantities
+    avg_price = sum(prices) / len(prices)
+    avg_quantity = sum(quantities) / len(quantities)
+    
+    # Calculate the total price required for each item and filter based on the restriction
+    items_to_buy = []
+    removed_count = 0
+    for i in range(len(prices)):
+        total_price_required = (quantities[i] * prices[i]) / (avg_quantity * avg_price)
+        if total_price_required <= total_price_allowed:
+            items_to_buy.append(construction_names[i])
+        else:
+            removed_count += 1
+            
+    return sorted(items_to_buy), removed_count

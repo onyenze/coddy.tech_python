@@ -294,4 +294,6 @@ def whatToBuy(prices, quantities, total_price_allowed, construction_names):
         else:
             removed_count += 1
             
-    return sorted(items_to_buy), removed_count
+    return sorted(items_to_buy), 
+
+# challenge 32

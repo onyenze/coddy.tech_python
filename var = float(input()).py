@@ -6,3 +6,6 @@ while  fact <= var:
             fact *= i
     
     print(fact)
+
+
+    
